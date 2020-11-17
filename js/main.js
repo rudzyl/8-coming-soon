@@ -1,1 +1,1 @@
-this is js 
+console.log('JS is running...');
