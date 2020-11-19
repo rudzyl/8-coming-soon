@@ -28,7 +28,4 @@
                 display: inline-block;
                 width: 600px;
                 margin-left: calc(50% - 300px);
-            } 
-            footer.container > .row-short {
-                margin-top: var(--section-padding);
             }
