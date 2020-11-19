@@ -1,14 +1,14 @@
 /* custom CSS - everything else, that wasn't styled with components css */
 
-.container.hero {
+.container .hero {
     padding-bottom: var(--section-padding);
 }
 
-footer.container {
+footer .container {
     padding-top: 0;
     padding-bottom: calc(var(--section-padding) * 1.5);
 }
-    footer.container > .row-short {
+    footer .container > .row-short {
         margin-top: var(--section-padding);
     }
 
