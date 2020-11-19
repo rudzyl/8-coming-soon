@@ -1,3 +1,4 @@
+
 /* custom CSS - everything else, that wasn't styled with components css */
 
 .container .hero {
@@ -15,3 +16,5 @@ footer .container {
 .bg-main-color {
     background-color: var(--main-color);
 }
+=======
+/* custom CSS - everything else, that wasn't styled with components css */
