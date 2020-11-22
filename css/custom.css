@@ -1,7 +1,5 @@
-
 /* custom CSS - everything else, that wasn't styled with components css */
 
-/* layout */
 .container.hero {
     padding-bottom: var(--section-padding);
 }
@@ -17,7 +15,6 @@ footer.container {
 .bg-main-color {
     background-color: var(--main-color);
 }
-
 /*hero*/
 .hero {
     text-align: center;
