@@ -2,6 +2,7 @@
 
 .container.hero {
     padding-bottom: var(--section-padding);
+    text-transform: uppercase;
 }
 
 footer.container {
