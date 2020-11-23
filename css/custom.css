@@ -1,8 +1,8 @@
 /* custom CSS - everything else, that wasn't styled with components css */
 
+/*layout*/
 .container.hero {
     padding-bottom: var(--section-padding);
-    text-transform: uppercase;
 }
 
 footer.container {
@@ -27,7 +27,7 @@ footer.container {
 .hero h1 {
     display: inline-block;
     width: 100%;
-    margin-bottom: calc(var(--hero-space));
+    margin-bottom: var(--hero-space);
     text-transform: uppercase;
     font-size: 50px;
     color: black;
@@ -37,14 +37,34 @@ footer.container {
     width: 100%;
     margin-bottom: calc(var(--hero-space) * 3);
     font-size: 18px;
-    color: #555;
+    color: var(--grey-color);
 }
 .hero .clock {
     margin-bottom: calc(var(--hero-space) * 2);
 }
 .hero .form {
-    margin-bottom: calc(var(--hero-space));
+    margin-bottom: var(--hero-space);
 }
 /*main content*/
+main h2 {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: var(--main-space);
+    color: #000;
+    font-size: 21px;
+    text-transform: uppercase;
+}
+main p {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: var(--main-space);
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--grey-color);
+}
+    main p > a {
+        color: var(--secondary-color);
+        text-decoration-line: none;
+    }
 
 /*footer*/
