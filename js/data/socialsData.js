@@ -8,10 +8,6 @@ const socialsData = [
         link: '#'
     },
     {
-        icon: 'dribble',
-        link: '#'
-    },
-    {
         icon: 'tumblr',
         link: '#'
     },
