@@ -4,7 +4,6 @@
  * @param {Array} data Duomenu masyvas su objektais, kurie reprezentuoja social nuorodas
  * @returns {boolean} Jei patikrinimo metu randama logine duomenu klaida, tai grazina `false`, priesingu atveju - `true`
  */
-
 function imputValidation(selector, data) {
         if (typeof selector !== 'string') {
             console.error('ERROR: selectorius turi buti tekstinio tipo.')
