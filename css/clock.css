@@ -1,30 +1,30 @@
 
-    hero .clock {
+.hero .clock {
+    display: inline-block;
+    width: 100%;
+}
+    .clock .time-box {
         display: inline-block;
-        width: 100%;
+        float: left;
+        width: 25%;
+        text-transform: uppercase;
+        color: #fff;
     }
-        .clock .time-box {
-            display: inline-block;
-            float: left;
-            width: 25%;
-            text-transform: uppercase;
-            color: #fff;
-        }
-            .clock .time-box > h2 {
+        .clock .time-box > .time {
                 font-size: 50px;
-            }
+        }
     
-    @media (max-width: 700px){
-        .clock .time-box {
-            width: 50%;
-            margin-bottom: var(--hero-space);
-        }
-            .clock .time-box > h2 {
-                margin: 0;
-            }
+@media (max-width: 700px){
+    .clock .time-box {
+        width: 50%;
+        margin-bottom: var(--hero-space);
     }
-    @media (max-width: 300px){
-        .clock .time-box {
-            width: 100%;
+        .clock .time-box > .time {
+            margin: 0;
         }
-    } 
+}
+@media (max-width: 300px){
+    .clock .time-box {
+         width: 100%;
+    }
+} 
