@@ -1,4 +1,4 @@
-.clock {
+
     hero .clock {
         display: inline-block;
         width: 100%;
@@ -28,4 +28,3 @@
             width: 100%;
         }
     } 
-}
