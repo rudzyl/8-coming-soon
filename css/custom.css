@@ -96,15 +96,16 @@ footer {
     font-size: 17px;
     color: #fffa;
 }
-    footer .container > .row {
+    footer.container > .row {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 10px;
         padding: 10px 20px;
         border-bottom: 1px solid white;
-        flex-wrap: wrap;
+        position: relative;
     }
-    footer .fa {
+    footer .social.fa {
         display: inline-block;
         width: 40px;
         padding: 10px;
@@ -114,9 +115,14 @@ footer {
         border-radius: 50%;
         transition: all 0.5s;
     }
-    footer .fa:hover {
+    footer .social.fa:hover {
         background-color: white;
         color: var(--main-color);
+    }
+    footer .btn.circle {
+        position: absolute;
+        top: -24px;
+        right: -13px;
     }
     footer .text-trio {
         display: inline-block;
