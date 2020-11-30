@@ -1,3 +1,5 @@
+import { countTimeDiff } from '../clock/countTimeDiff.js'
+
 /**
  * Generuoja statini laikrodi, kuris parodo kiek liko laiko iki artimiausiu Naujuju metu
  * @param {string} selector CSS taisykle, kaip rasti vieta, kur bus generuojamas laikrodzio HTML turinys
@@ -15,40 +17,7 @@ function renderClock (selector) {
         console.error('ERROR: neresta vieta, kur sugeneruoti laikrodzio HTML turini');
         return false;
     }
-
-    //einamieji metai (2020)
-    const date = new Date();
-    const currentYear = date.getFullYear();
-
-
-    //naujakas = einamieji metai + 1 (2020+1=2021)
-    const newYear = currentYear + 1;
-
-
-    //susikonstruojame pilna data: ${naujakas}-01-01 00:00:00
-    const newYearDate = `${newYear}-01-01 00:00:00`;
-    const newYearObject = new Date(newYearDate);
-    const newYearMiliseconds = newYearObject.getTime();
-
-    console.log(newYearDate);
-
-    //einamasis laikas yyyy-mm-dd hh:mm:ss
-const currentTimeMiliseconds = date.getTime();
-
-    //suskaiciuojame laiko skirtuma
-const timeLeft = newYearMiliseconds - currentTimeMiliseconds;
-let secondsLeft = timeLeft / 1000;
-
-    //is skirtumo apskaiciuojame likusias dienas, valandas, minutes, sekundes
-
-    const days = Math.floor(secondsLeft / 60 / 60 / 24);
-    secondsLeft -= days * 60 * 60 * 24;
-    const hours = Math.floor(secondsLeft / 60 / 60);
-    secondsLeft -= hours * 60 * 60;
-    const minutes = Math.floor(secondsLeft / 60) ;
-
-    const seconds = Math.floor(secondsLeft - minutes * 60);
-
+    const time = countTimeDiff();
     const HTML = `<div class="time-box">
                     <div class="time">${days}</div>
                     <span>Days</span>
@@ -67,6 +36,18 @@ let secondsLeft = timeLeft / 1000;
                 </div>`;
 
     DOM.innerHTML = HTML;
+    const timesDOM = DOM.querySelectorAll('.time');
+    console.log(timesDOM);
+
+    setInterval(() => {
+        const time = countTimeDiff();
+        timesDOM[0].innerText = time.days < 10 ? '0' + time.days : time.days;
+        timesDOM[1].innerText = time.hours < 10 ? '0' + time.hours : time.hours;
+        timesDOM[2].innerText = time.minutes < 10 ? '0' + time.minutes : time.minutes;
+        timesDOM[3].innerText = time.seconds < 10 ? '0' + time.seconds : time.seconds;
+    })
+
+
     return true;
 }
 
