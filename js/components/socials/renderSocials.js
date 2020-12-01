@@ -27,7 +27,7 @@ function renderSocials(selector, data) {
             continue;
         }
 
-        HTML += `<a href="${item.link}" target="_blank" class="fa fa-${item.icon}" aria-hidden="true"></a>`;
+        HTML += `<a href="${item.link}" target="_blank" class="social fa fa-${item.icon}" aria-hidden="true"></a>`;
     }
 
     //post logic validation
@@ -36,7 +36,7 @@ function renderSocials(selector, data) {
         return false;
     }
     //return
-    socialDOM.innerHTML = HTML;
+    socialDOM.innerHTML += HTML;
     return true;
 }
 export { renderSocials }
