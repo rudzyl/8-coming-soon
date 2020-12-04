@@ -3,7 +3,7 @@
 /*layout*/
 .container.hero {
     padding-bottom: var(--section-padding);
-    background-image:url(../img/hero-image-geras.jpg) ;
+    background-image:url(../img/hero-image-geras.jpg);
     background-size: cover;
     background-position: bottom center;
     background-attachment: fixed;

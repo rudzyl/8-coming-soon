@@ -7,7 +7,7 @@ import { isValidText } from './isValidText.js';
 const validation = { 
     text: isValidText, 
     email: isValidEmail, 
-    name:isValidName 
+    name: isValidName 
 }
 
 export { validation }

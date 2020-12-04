@@ -24,7 +24,7 @@ import { validation } from './validationRules.js';
         console.clear();
 
         for (let input of allElements) {
-            const validationRule = input.dataset.validation;
+            const validationRule = input.dataset.validation; // html'e - data-validation
             const text = input.value;
 
             const validationFunction = validation[validationRule];

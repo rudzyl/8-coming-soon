@@ -21,4 +21,4 @@ toast.render();
 toast.show('error', 'cia yra klaida');
 
 formValidator('.hero .form');
-formValidator('.main .form');
+formValidator('main .form');
