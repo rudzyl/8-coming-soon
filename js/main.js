@@ -16,9 +16,9 @@ renderClock('.clock');
 renderAllProgressBars(progressBarData);
 
 const toast = new Toast();
-toast.render();
-// toast.show('error', 'Cia yra klaida!!!');
-toast.show('error', 'cia yra klaida');
+toast.render(); // render struktura html'e
+toast.show('success', 'Viskas OK');
+//toast.show('error', 'cia yra klaida');
 
 formValidator('.hero .form');
 formValidator('main .form');

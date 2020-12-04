@@ -1,9 +1,9 @@
 class Toast {
     constructor() {
-        this.selector = 'body';
+        this.selector = 'body'; // vieta kur istatyti toast
         this.renderIntoParentDOM = document.querySelector(this.selector);
         this.DOM = null;   //reprezentuoja pati nauja sugeneruota elementa
-        this.textDOM = null     // elementas, kuriame atvaizduosime pranesima
+        this.textDOM = null;     // elementas, kuriame atvaizduosime pranesima
     }
     /**
      * 
@@ -25,8 +25,8 @@ class Toast {
         this.DOM.classList.remove('visible');
     }
 
-    render() {
-        const HTML = `<div class="toast">
+    render() { // elementas kuris sukuria html
+        const HTML =    `<div class="toast">
                             <i class="fa fa-check"></i>
                             <i class="fa fa-shield"></i>
                             <p>Your message here...</p>
@@ -34,7 +34,7 @@ class Toast {
                         </div>`;
 
         this.renderIntoParentDOM.insertAdjacentHTML('beforeend', HTML);
-        this.DOM = this.renderIntoParentDOM.querySelector('.toast');
+        this.DOM = this.renderIntoParentDOM.querySelector('.toast'); // elementas kuris zino kur randasi toast 
         this.textDOM = this.DOM.querySelector('p');
     }
 }
