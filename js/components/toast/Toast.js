@@ -1,9 +1,15 @@
 class Toast {
+    /**
+     * Konstruktorius inicijuojantis pranesima rodanti elementa
+     * @constructor
+     */
     constructor() {
         this.selector = 'body'; // vieta kur istatyti toast
         this.renderIntoParentDOM = document.querySelector(this.selector);
         this.DOM = null;   //reprezentuoja pati nauja sugeneruota elementa
         this.textDOM = null;     // elementas, kuriame atvaizduosime pranesima
+        this.closeDOM = null //elementas skirtas uzdaryti toast
+        this.closeTimer = null; // laikrodis, reguliuojantis kada uzdaryti pranesima toasteri
     }
     /**
      * 
@@ -20,12 +26,16 @@ class Toast {
         if (type === 'error') {
             this.DOM.classList.add('error');
         }
+        this.closeTimer = setTimeout(() => {
+            this.hide();
+        }, 10000)
     }
-    hide() {
+    hide() { //metodas paslepentis pranesimo elementa
         this.DOM.classList.remove('visible');
+        clearTimeout(this.closeTimer);
     }
 
-    render() { // elementas kuris sukuria html
+    render() { //  metodas kuris sukuria / sugeneruoja html pranesimo elementa
         const HTML =    `<div class="toast">
                             <i class="fa fa-check"></i>
                             <i class="fa fa-shield"></i>
@@ -33,9 +43,14 @@ class Toast {
                             <i class="fa fa-times"></i>
                         </div>`;
 
-        this.renderIntoParentDOM.insertAdjacentHTML('beforeend', HTML);
-        this.DOM = this.renderIntoParentDOM.querySelector('.toast'); // elementas kuris zino kur randasi toast 
-        this.textDOM = this.DOM.querySelector('p');
+        this.renderIntoParentDOM.insertAdjacentHTML('beforeend', HTML); //istatomas objektas toastas
+        this.DOM = this.renderIntoParentDOM.querySelector('.toast'); // surandamas objektas toastas
+        this.textDOM = this.DOM.querySelector('p'); //vieta kur irasineju zinutes 
+        this.closeDOM = this.DOM.querySelector('.fa-times'); //surandamas dominamas objektas toaste
+
+        this.closeDOM.addEventListener('click', () => {
+            this.hide();
+        })
     }
 }
 

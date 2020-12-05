@@ -1,11 +1,17 @@
 import { validation } from './validationRules.js';
 
- function formValidator(selector) {
+/**
+ * Formos validavima atliekanti funcija, kuri automatiskai atpazyta kokiems ivesties laukams kokias validacijos taisykles reikia taikyti ir pagal tai atvaizduoja atitinkamus pranesimus.
+ * @param {string} selector CSS like selector
+ * @param {Object} toastObject Objektas, i kuri reikia kreiptis norint atvaizduoti pranesimus: tiek `sekmes` tiek `klaidos`.
+ * @returns {boolean} Funkcijai sekmingai suveikus grazinamas `true`, priesingu atveju `false`.
+ */
+ function formValidator(selector, toastObject) {
     const formDOM = document.querySelector(selector);
     const submitBtnDOM = formDOM.querySelector('input[type="submit"]');
 
     if (!submitBtnDOM) {
-        console.error('ERROR: formoje nerastas submit mygtukas');
+        toastObject.show('error', 'ERROR: formoje nerastas submit mygtukas');
         return false;
     } 
 
@@ -14,14 +20,14 @@ import { validation } from './validationRules.js';
 
     const allElements = [...allInputDOMs,...allTextareaDOMs];
 
-    if (allElements === 0) {
-        console.error('ERROR: nera elementu');
+    if (allElements.length === 0) {
+        toastObject.show('error', 'ERROR: nera elementu');
         return false;
     }
 
-    submitBtnDOM.addEventListener('click', () => {
+    submitBtnDOM.addEventListener('click', event => {
+        event.preventDefault(); //nebeperkrauna puslapio
         let errorCount = 0;
-        console.clear();
 
         for (let input of allElements) {
             const validationRule = input.dataset.validation; // html'e - data-validation
@@ -29,18 +35,19 @@ import { validation } from './validationRules.js';
 
             const validationFunction = validation[validationRule];
             const error = validationFunction(text);
-            
             if (error !== true) {
-                console.log(error);
+                toastObject.show('error', error);
                 errorCount++;
+                break; //vos tik atsiranda pirma klaida, sustoja viskas, niekas daugiau nebevaliduojama ir metama klaida
 
             }
         }
 
         if (errorCount === 0) {
-            console.log('siunciam info..');
+            toastObject.show('success', 'siunciam info..');
         }
     })
+    return true;
 }
 
 export { formValidator }

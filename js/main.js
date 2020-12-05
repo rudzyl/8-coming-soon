@@ -20,5 +20,5 @@ toast.render(); // render struktura html'e
 toast.show('success', 'Viskas OK');
 //toast.show('error', 'cia yra klaida');
 
-formValidator('.hero .form');
-formValidator('main .form');
+formValidator('.hero .form', toast);
+formValidator('main .form', toast);
