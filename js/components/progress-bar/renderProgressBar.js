@@ -1,3 +1,5 @@
+import { isValidSingleProgressBar } from './isValidSingleProgressBar.js';
+
 /**
  * Progress bar komponento generavimas
  * @param {string} selector CSS like selectorius, kaip rasti vieta, kur sugeneruoti turini
